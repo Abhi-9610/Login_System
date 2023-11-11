@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up Page</title>
+    
+    <!-- Include jQuery and Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.5.2/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+
+        h2 {
+            color: #007bff;
+            font-family: 'Arial', sans-serif;
+        }
+
+        .alert {
+            padding: 10px;
+            margin: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #f8f9fa;
+            color: #333;
+            position: relative;
+        }
+
+        .alert button.close {
+            position: absolute;
+            top: 5px;
+            right: 10px;
+            padding: 5px;
+            border: none;
+            background: transparent;
+            cursor: pointer;
+        }
+
+        .close-icon {
+            font-size: 20px;
+        }
+
+        .alert-success {
+            background-color: #d4edda;
+            border-color: #c3e6cb;
+            color: #155724;
+        }
+
+        button {
+            background-color: #007bff;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+        }
+
+        a {
+            text-decoration: none;
+            color: #fff;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Sign Up</h2>
+        
+        <!-- Alert Messages -->
+        {% for message in messages %}
+        <div class="alert alert-{{ message.tags }}">
+            <strong>Message:</strong> {{ message }}
+            <button class="close">
+                <span class="close-icon" aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        {% endfor %}
+
+        <form method="post">
+            {% csrf_token %}
+            
+            <br>
+            
+            <div>
+                <label for="Firstname">Enter Your First Name:</label>
+                <input type="text" name="Firstname" id="Firstname" placeholder="Enter your First name" required>
+            </div>
+            
+            <br>
+            
+            <div>
+                <label for="Lastname">Enter Your Last Name:</label>
+                <input type="text" name="Lastname" id="Lastname" placeholder="Enter your Last name" required>
+            </div>
+            
+            <br>
+            
+            <div>
+                <label for="Email">Enter Your Email:</label>
+                <input type="email" name="Email" id="Email" placeholder="Enter your email" required>
+            </div>
+            
+            <br>
+            
+            <div>
+                <label for="Username">Enter Username:</label>
+                <input type="text" name="Username" id="Username" placeholder="Enter Username" required>
+            </div>
+            
+            <br>
+            
+            <div>
+                <label for="Password">Enter Your Password:</label>
+                <input type="password" name="Password" id="Password" placeholder="Enter your password" required>
+            </div>
+            
+            <br>
+            
+            <div>
+                <label for="ConfirmPassword">Confirm Your Password:</label>
+                <input type="password" name="ConfirmPassword" id="ConfirmPassword" placeholder="Confirm Password" required>
+            </div>
+            
+            <br>
+            
+            <div>
+                <button type="submit">Sign Up</button>
+            </div>
+        </form>
+    </div>
+
+    <script async defer></script>
+</body>
+</html>
